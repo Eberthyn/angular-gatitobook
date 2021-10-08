@@ -45,7 +45,7 @@ export class NovoUsuarioComponent implements OnInit {
       const novoUsuario = this.novoUsuarioForm.getRawValue() as NovoUsuario;
       this.NovoUsuarioService.cadastraNovoUsuario(novoUsuario).subscribe(
         () => {
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         },
         (error) => {
           // tslint:disable-next-line: no-console
