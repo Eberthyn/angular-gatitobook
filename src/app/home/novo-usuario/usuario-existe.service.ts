@@ -17,9 +17,8 @@ export class UsuarioExisteService {
         ),
         map(
           (usuarioExiste) =>
-            usuarioExiste ? { usuarioExistente: true } : null,
+            usuarioExiste ? { usuarioExistente: true } : null ),
           first()
-        )
       );
     };
   }
