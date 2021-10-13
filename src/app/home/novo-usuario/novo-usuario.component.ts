@@ -17,6 +17,7 @@ export class NovoUsuarioComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    // tslint:disable-next-line: no-shadowed-variable
     private NovoUsuarioService: NovoUsuarioService,
     private usuarioJaExistenteService: UsuarioExisteService,
     private router: Router
