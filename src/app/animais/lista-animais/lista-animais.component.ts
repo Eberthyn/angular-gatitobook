@@ -24,6 +24,6 @@ export class ListaAnimaisComponent implements OnInit {
         const userName = usuario.name ?? '';
         return this.animaisService.listaDoUsuario(userName);
       })
-    );
+    )
   }
 }
