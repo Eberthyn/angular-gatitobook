@@ -18,7 +18,7 @@ export class LoginGuard implements CanLoad {
     | boolean
     | UrlTree {
     if (this.usuarioService.estaLogado()) {
-      this.router.navigate(['']); /* Página entra em loop ao tentar retornar para home/login */
+      this.router.navigate(['']); /* Página entra em loop ao tentar retornar para home/login ou recarregar pagina */
       return false;
     }
     return true;

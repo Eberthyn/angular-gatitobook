@@ -10,14 +10,14 @@ import { BehaviorSubject } from 'rxjs';
 export class UsuarioService {
   private usuarioSubject = new BehaviorSubject<Usuario>({});
 
-  constructor(private TokenService: TokenService) {
-    if(this.TokenService.possuiToken()){
-      this.decodificaJWT;
+  constructor(private tokenService: TokenService) {
+    if(this.tokenService.possuiToken()){
+      this.decodificaJWT();
     }
   }
 
   private decodificaJWT() {
-    const token = this.TokenService.retornaToken();
+    const token = this.tokenService.retornaToken();
     const usuario = jwt_decode(token) as Usuario;
     this.usuarioSubject.next(usuario);
   }
@@ -27,17 +27,17 @@ export class UsuarioService {
   }
 
   salvaToken(token:string){
-    this.TokenService.salvaToken(token);
+    this.tokenService.salvaToken(token);
     this.decodificaJWT();
   }
 
   logout(){
-    this.TokenService.excluiToken();
+    this.tokenService.excluiToken();
     this.usuarioSubject.next({});
   }
 
   estaLogado(){
-    return this.TokenService.possuiToken();
+    return this.tokenService.possuiToken();
   }
 
 }
