@@ -1,3 +1,4 @@
+import { MenuModule } from './../menu/menu.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CabecalhoComponent } from './cabecalho.component';
@@ -10,7 +11,7 @@ import { RouterModule } from '@angular/router';
     CabecalhoComponent
   ],
   imports: [
-    CommonModule, RouterModule
+    CommonModule, RouterModule, MenuModule
   ],
   exports:[
     CabecalhoComponent,

@@ -1,9 +1,19 @@
 <header class="sticky-top">
   <nav class="navbar navbar-light bg-white">
-    <a [routerLink]="['']">
+    <!-- <a [routerLink]="['']">
       <i class="fa fa-home fa-2x"></i>
-    </a>
-    <a class="navbar-brand">Gatito Book</a>
+    </a>-->
+
+    <a class="navbar-brand"><i (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()" class="fa fa-bars mr-2"></i>Gatito Book</a>
+
+    <app-menu #menu>
+      <ul class="list-unstyled">
+        <li>
+          <a [routerLink]="['animais', 'novo']">Novo Animal</a>
+        </li>
+      </ul>
+    </app-menu>
+
     <div *ngIf="user$ | async as user">
       <div *ngIf="user.name; else login">
         <i class="fa fa-user-circle mr-1"> {{ user.name }} </i>
