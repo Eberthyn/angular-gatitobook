@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, mapTo } from 'rxjs/operators';
+import { TokenService } from '../autenticacao/token.service';
 
 const API = environment.apiURL;
 const NOT_MODIFIED = '304';
@@ -12,7 +13,7 @@ const NOT_MODIFIED = '304';
   providedIn: 'root',
 })
 export class AnimaisService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private tokenService: TokenService) {}
 
   listaDoUsuario(nomeDoUsuario: string): Observable<Animais> {
     return this.http.get<Animais>(

@@ -18,12 +18,12 @@ export class NovoAnimalComponent implements OnInit {
 
   constructor(
     private animaisService: AnimaisService,
-    private formBuider: FormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.formularioAnimal = this.formBuider.group({
+    this.formularioAnimal = this.formBuilder.group({
       file: ['', Validators.required],
       description: ['', Validators.maxLength(300)],
       allowComments: [true],
@@ -34,6 +34,7 @@ export class NovoAnimalComponent implements OnInit {
     const allowComments =
       this.formularioAnimal.get('allowComments')?.value ?? false;
     const description = this.formularioAnimal.get('description')?.value ?? '';
+
     this.animaisService
       .upload(description, allowComments, this.file)
       .pipe(finalize(() => this.router.navigate(['animais'])))

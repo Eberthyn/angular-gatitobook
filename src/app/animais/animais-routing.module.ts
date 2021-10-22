@@ -11,8 +11,8 @@ const routes: Routes = [
     component: ListaAnimaisComponent,
     resolve: { animais: ListaAnimaisResolver },
   },
-  { path: ':animalId', component: DetalheAnimalComponent },
   { path: 'novo', component: NovoAnimalComponent },
+  { path: ':animalId', component: DetalheAnimalComponent },
 ];
 
 @NgModule({
